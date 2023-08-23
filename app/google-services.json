@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "368365359366",
+    "firebase_url": "https://iot-irrigation-616e8-default-rtdb.firebaseio.com",
+    "project_id": "iot-irrigation-616e8",
+    "storage_bucket": "iot-irrigation-616e8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:368365359366:android:afcdb7a2d71ba16461ce87",
+        "android_client_info": {
+          "package_name": "bd.ac.duet.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "368365359366-n7frg8imbpff2sggv4u7ta1hcapboc1u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC5DfxfS3f3LxYX5tsmgzHvVy2BojUdpz0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "368365359366-n7frg8imbpff2sggv4u7ta1hcapboc1u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
