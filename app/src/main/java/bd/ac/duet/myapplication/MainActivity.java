@@ -5,6 +5,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.app.PendingIntent;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -56,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
         database.child("AnalogOutput").child("Moisture").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                moisture.setText("Moisture level: "+snapshot.getValue(String.class));
+                moisture.setText("Moisture level:                 "+snapshot.getValue(String.class)+"%");
             }
 
             @Override
@@ -68,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
         database.child("AnalogOutput").child("Pump").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                water.setText("Water pump: "+(snapshot.getValue(String.class).equals("1")?"On":"Off"));
+                water.setText("Water pump:                    "+(snapshot.getValue(String.class).equals("1")?"On":"Off"));
             }
 
             @Override
