@@ -31,7 +31,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     private TextView moisture,water;
-    private Switch fertilizer;
+    private Switch fertilizer,circuit;
     private ImageView imageView1;
 
 
@@ -48,16 +48,17 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         moisture=findViewById(R.id.moistureTv);
         water=findViewById(R.id.waterTv);
+        circuit=findViewById(R.id.circuit);
         fertilizer=findViewById(R.id.fertPumpSw);
       //  imageView1=findViewById(R.id.image1);
 
-        startService(new Intent(this,MyService.class));
+        //startService(new Intent(this,MyService.class));
 
 
         database.child("AnalogOutput").child("Moisture").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                moisture.setText("Moisture level:                 "+snapshot.getValue(String.class)+"%");
+                moisture.setText("Moisture level                 "+snapshot.getValue(String.class)+"%");
             }
 
             @Override
@@ -69,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
         database.child("AnalogOutput").child("Pump").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                water.setText("Water pump:                    "+(snapshot.getValue(String.class).equals("1")?"On":"Off"));
+                water.setText("Water pump                    "+(snapshot.getValue(String.class).equals("1")?"On":"Off"));
             }
 
             @Override
@@ -78,6 +79,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+
+        circuit.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                database.child("Load").child("Circuit").setValue(b?"1":"0");
+            }
+        });
 
         fertilizer.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
